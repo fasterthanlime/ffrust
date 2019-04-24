@@ -5,9 +5,12 @@ fn main() {
     let lib_path: PathBuf = lib_path.into();
     let lib_path = lib_path.join("lib");
 
-    println!("cargo:rustc-link-search=native={}", lib_path.to_str().unwrap());
+    println!(
+        "cargo:rustc-link-search=native={}",
+        lib_path.to_str().unwrap()
+    );
 
-    let static_libs = vec!["libavutil", "libavformat", "libavcodec", "libswscale", "libx264"];
+    let static_libs = vec!["avutil", "avformat", "avcodec", "swscale", "libx264"];
     for lib in static_libs {
         println!("cargo:rustc-link-lib=static={}", lib);
     }
