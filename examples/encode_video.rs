@@ -8,7 +8,8 @@ fn main() {
     unsafe {
         let codec_name = "libx264";
 
-        let codec = ffrust::avcodec_find_encoder_by_name(CString::new("libx264").unwrap().as_ptr());
+        let codec =
+            ffrust::avcodec_find_encoder_by_name(CString::new(codec_name).unwrap().as_ptr());
         if codec.is_null() {
             panic!("Codec '{}' not found", codec_name);
         }
