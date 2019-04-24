@@ -7,7 +7,7 @@ fn main() {
 
     println!("cargo:rustc-link-search=native={}", lib_path.to_str().unwrap());
 
-    let static_libs = vec!["libavutil", "libavformat", "libavcodec", "libx264"];
+    let static_libs = vec!["libavutil", "libavformat", "libavcodec", "libswscale", "libx264"];
     for lib in static_libs {
         println!("cargo:rustc-link-lib=static={}", lib);
     }
