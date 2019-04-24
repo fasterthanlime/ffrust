@@ -1,0 +1,11 @@
+[package]
+name = "ffrust"
+version = "0.1.0"
+authors = ["Amos Wenger <amoswenger@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+libc = "0.2.51"
+
+[dev-dependencies]
+const-cstr = "0.3.0"
