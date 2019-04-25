@@ -10,7 +10,7 @@ fn main() {
         lib_path.to_str().unwrap()
     );
 
-    let static_libs = vec!["avutil", "avformat", "avcodec", "swscale", "libx264"];
+    let static_libs = vec!["avutil", "avformat", "avcodec", "swscale", "swresample", "libx264"];
     for lib in static_libs {
         println!("cargo:rustc-link-lib=static={}", lib);
     }

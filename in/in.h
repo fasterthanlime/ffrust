@@ -62,3 +62,4 @@
 
 #include <libswscale/swscale.h>
 
+#include <libswresample/swresample.h>
