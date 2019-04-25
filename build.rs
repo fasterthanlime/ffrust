@@ -11,7 +11,9 @@ fn main() {
     );
 
     let target = std::env::var("TARGET").unwrap();
-    let x264_lib = if target.contains("windows-msvc") {
+    let msvc = target.contains("windows-msvc");
+
+    let x264_lib = if msvc {
         // x264's build scripts produce "libx264.lib" for
         // some reason. oh well.
         "libx264"
@@ -24,8 +26,10 @@ fn main() {
         println!("cargo:rustc-link-lib=static={}", lib);
     }
 
-    let dynamic_libs = vec!["bcrypt", "user32"];
-    for lib in dynamic_libs {
-        println!("cargo:rustc-link-lib=dylib={}", lib);
+    if msvc {
+        let dynamic_libs = vec!["bcrypt", "user32"];
+        for lib in dynamic_libs {
+            println!("cargo:rustc-link-lib=dylib={}", lib);
+        }
     }
 }
